@@ -173,8 +173,8 @@ const Sidebar = () => {
                   text-zinc-700 font-semibold rounded-md hover:text-zinc-900
                   hover:bg-zinc-100'
             > 
-              <HandHelping />
-              <Car />
+              <HandHelping className="text-primary"/>
+              <Car className="text-primary"/>
               <h3 className='text-lg'>HelpMe-Car</h3>
             </a>
             <a 
@@ -184,8 +184,8 @@ const Sidebar = () => {
                   text-zinc-700 font-semibold rounded-md hover:text-zinc-900
                   hover:bg-zinc-100'
             > 
-              <TreesIcon />
-              <ForkKnife />
+              <TreesIcon className="text-emerald-600"/>
+              <ForkKnife className="text-emerald-600"/>
               <h3 className='text-lg'>Peaky Blogger</h3>
             </a>
           </div>

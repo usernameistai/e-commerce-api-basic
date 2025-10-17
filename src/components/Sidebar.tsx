@@ -1,6 +1,6 @@
 import { useEffect, useState, type ChangeEvent } from "react";
 import { useFilter } from "./FilterContext";
-import {  Atom, Brain, Car, ForkKnife, HandHelping, HandHelpingIcon, Radiation, Settings, ShoppingCart, TreePine, TreePineIcon, TreesIcon } from "lucide-react";
+import {  Atom, Brain, Car, ForkKnife, HandHelping, Radiation, Settings, ShoppingCart, TreesIcon } from "lucide-react";
 import profile from '../assets/profile.jpg';
 
 interface Product {

@@ -71,7 +71,7 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className="w-[27.5%] p-5 h-[105vh] bg-gray-50 mr-10 font-sans bg-inherit shadow-lg">
+      <div className="hidden sm:block w-[27.5%] p-5 h-[105vh] bg-gray-50 mr-10 font-sans bg-inherit shadow-lg">
         <h1 className="text-2xl font-bold mb-3 flex flex-1 font-Inter">
           <ShoppingCart className="mr-1 mt-0 text-indigo-300" size={30}/>
           <span className="text-indigo-500">e</span> 

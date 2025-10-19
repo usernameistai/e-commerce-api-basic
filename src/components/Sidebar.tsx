@@ -1,6 +1,6 @@
 import { useEffect, useState, type ChangeEvent } from "react";
 import { useFilter } from "./FilterContext";
-import {  Atom, Brain, Car, ForkKnife, HandHelping, Radiation, Settings, ShoppingCart, TreesIcon } from "lucide-react";
+import {  Atom, Brain, Car, ForkKnife, HandHelping, Radiation, Settings, ShoppingCart, TreesIcon, X } from "lucide-react";
 import profile from '../assets/profile.jpg';
 
 interface Product {
@@ -71,15 +71,32 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className="hidden sm:block w-[27.5%] p-5 h-[105vh] bg-gray-50 mr-10 font-sans bg-inherit shadow-lg">
+      <input 
+        type='checkbox' 
+          id='toggle-sidebar' 
+            className='opacity-0 invisible w-0 h-0 absolute top-[-999px] peer'
+      />{/* The toggle-sidebar hee can be activated by input htmlFor='toggle-sidebar on another component */}
+      <aside 
+        className="hidden sidebar sm:block w-[30%] p-5 h-[105vh] bg-gray-50 mr-10 
+        font-sans bg-inherit shadow-lg peer-checked:left-0"
+      >
         <h1 className="text-2xl font-bold mb-3 flex flex-1 font-Inter">
           <ShoppingCart className="mr-1 mt-0 text-indigo-300" size={30}/>
           <span className="text-indigo-500">e</span> 
           <span className="text-blue-200">-</span>
-          <span className="text-tcolor">Commerce</span> 
+          <span className="text-tcolor">T'ai</span> 
           <span className="text-indigo-500 ml-1">Store </span>
-          
+          <div className='flex items-center justify-between'>
+            <label 
+              htmlFor='toggle-sidebar' 
+                className='size-8 ml-2 flex items-center justify-center rounded-full
+                bg-secondary hover:bg-secondary/50 lg:hidden'
+            >
+              <X />
+            </label>
+          </div>
         </h1>
+        
 
         <section>
           <input 
@@ -108,19 +125,19 @@ const Sidebar = () => {
           </div>
 
           {/* Categories Section */}
-          <div className="mb-3 ml-2">
-            <h2 className="text-xl font-semibold mb-3 text-zinc-800">Categories</h2>
+          <div className="mb-2 ml-2">
+            <h2 className="text-xl font-semibold text-tcolor">Categories</h2>
           </div>
 
-          <section className="mb-5 ml-3">
+          <section className="mb-1 ml-3 border-b">
             {categories.map((category, index) => (
-              <label key={index} className="block mb-2 text-indigo-500 font-semibold">
+              <label key={index} className="block mb-2 text-indigo-500 rounded-xl font-semibold hover:font-bold">
                 <input 
                   type="radio" 
                     name="category" 
                       value={category}
                         onChange={() => handleRadioChangeCategories(category)}
-                          className="mr-2 w-[16px] h-[16px]"
+                          className="mx-3 w-[16px] h-[16px] rounded hover:underline"
                             checked={selectedCategory === category}
                 />
                 {category.toUpperCase()}
@@ -130,15 +147,16 @@ const Sidebar = () => {
 
           {/* Keywords Section */}
           <div className="mb-2 ml-2">
-            <h2 className="text-xl font-semibold mb-2 text-zinc-800">Keywords</h2>
+            <h2 className="text-xl font-semibold mb-2 text-tcolor">Keywords</h2>
             <div className="ml-1">
               {keywords.map((keyword, index) => (
                 <button 
                   key={index}
                     onClick={() => handleKeywordClick(keyword)}
-                      className="block mb-1 px-4 py-2 w-full text-left border 
-                      rounded hover:bg-gray-200 shadow-inner hover:shadow-lg
-                      text-zinc-700 font-semibold"
+                      className="block mb-1 px-4 py-2 w-full font-semibold text-left border 
+                      border-zinc-500/10 text-zinc-700 rounded shadow-inner 
+                      hover:bg-gray-200/60 focus:shadow-none hover:shadow-lg 
+                      hover:border-gray-200/60"
                 >
                   {keyword.toUpperCase()}
                 </button>
@@ -148,9 +166,9 @@ const Sidebar = () => {
 
           <button
             onClick={handleResetFilters}
-              className="w-full mb-2 py-2 bg-indigo-500 font-semibold
-               hover:text-indigo-500 hover:bg-indigo-100 text-white 
-               rounded-lg shadow-lg hover:shadow-none mt-2"
+              className="w-full my-1 py-2 bg-indigo-500 font-semibold
+              text-white rounded-lg shadow-lg hover:text-indigo-500 
+              hover:bg-indigo-100 focus:shadow-none"
           >
             Reset Filters
           </button>
@@ -161,7 +179,7 @@ const Sidebar = () => {
                 target="_blank"
                   className='flex items-center gap-2 my-2 py-2 px-4 transition-all 
                   text-zinc-700 font-semibold rounded-md hover:text-zinc-900
-                  hover:bg-zinc-100'
+                  hover:bg-zinc-200/60 hover:shadow-lg'
             >
               <Settings/>
               <h3 className='text-lg'>Settings</h3>
@@ -171,41 +189,48 @@ const Sidebar = () => {
                 target="_blank"
                   className='flex items-center gap-2 my-2 py-2 px-4 transition-all 
                   text-zinc-700 font-semibold rounded-md hover:text-zinc-900
-                  hover:bg-zinc-100'
+                  hover:bg-zinc-200/60 hover:shadow-lg'
             > 
               <HandHelping className="text-primary"/>
-              <Car className="text-primary"/>
               <h3 className='text-lg'>HelpMe-Car</h3>
+              <Car className="text-primary"/>
             </a>
             <a 
               href='https://peakyblogger-d362176b187f.herokuapp.com/'
                 target="_blank"
                   className='flex items-center gap-2 my-2 py-2 px-4 transition-all 
                   text-zinc-700 font-semibold rounded-md hover:text-zinc-900
-                  hover:bg-zinc-100'
+                  hover:bg-zinc-200/60 hover:shadow-lg'
             > 
               <TreesIcon className="text-emerald-600"/>
-              <ForkKnife className="text-emerald-600"/>
               <h3 className='text-lg'>Peaky Blogger</h3>
+              <ForkKnife className="text-emerald-600"/>
             </a>
           </div>
 
-          <div className='flex gap-2 bg-yellow-100 p-2 justify-between rounded bg-inherit'>
+          <a 
+            href='https://portfolioawesome-db.netlify.app/'
+                target="_blank"
+                  className='flex gap-2 bg-yellow-100 p-2 justify-between rounded-lg 
+                  cursor-help shadow-lg hover:shadow-xl'
+          >
             <div className="flex flex-row gap-2">
               <div className='size-8 overflow-hidden rounded-full'>
                 <img src={profile} alt='Jedi' />
               </div>
-              <div className="text-tmuted">
+              <div className="text-tmuted font-semibold">
                 <h4 className='text-sm'>David `T'ai` Battye</h4>
                 <p className='text-xs'> ICT Manager</p>
               </div>
             </div>
             <div className='flex flex-row text-indigo-500'>
-              <Atom /><Brain /><Radiation />
+              <Atom />
+              <Brain />
+              <Radiation />
             </div>
-          </div>
+          </a>
         </section>
-      </div>
+      </aside>
     </>
   );
 };

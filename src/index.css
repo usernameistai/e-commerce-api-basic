@@ -21,7 +21,7 @@
   --border-color: 229 231 235;
 }
 [data-theme="dark"] {
-  --ui-base: 18 18 18;
+  --ui-base: 10 12 30; /* 18 18 18; */
   --ui-secondary: 28 28 28;
   --ui-accent: 42 42 46;
   --text-color: 255 255 255;
@@ -40,3 +40,9 @@
     @apply bg-base text-tcolor font-Roboto;
   }
 }
+
+/* @media (min-width: 320px) and (max-width: 480px) {
+  .sidebar:h1 {
+   visibility: hidden;
+  }
+} */

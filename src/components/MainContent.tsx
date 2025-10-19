@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useFilter } from './FilterContext';
-import { Tally3 } from 'lucide-react';
+import { Menu, ShoppingCart, Tally3 } from 'lucide-react';
 import axios from 'axios';
 import BookCard from './BookCard';
 import ThemeSwitch from './ThemeSwitch';
@@ -94,27 +94,49 @@ const MainContent = () => {
   return (
     <>
       <section 
-        className='xl:w-[55rem] mr-[10rem] lg:w-[55rem] sm:w-[40rem] xs:w-[20rem] 
+        className='xl:w-[55rem] mr-[8rem] lg:w-[55rem] sm:w-[40rem] xs:w-[20rem] 
         p-5 bg-inherit'
       >
         <div className="mb-5">
           <div className="flex flex-col sm:flex-row justify-between items-center">
             <div className="relative mb-5 mt-5">
-              <div className='flex justify-between'>
-                <button
-                  onClick={() => setDropdownOpen(!dropdownOpen)}
-                    className="mr-8 px-4 py-2 rounded-full flex items-center 
-                    bg-indigo-500 text-white shadow-lg overflow-hidden
-                    hover:bg-indigo-100 hover:text-zinc-800 hover:shadow-none"
-                >
-                  <Tally3 className='mr-2'/>
 
-                  {filter === 'all' 
-                    ? 'Filter' 
-                    : filter.charAt(0).toLowerCase() + filter.slice(1)}
-                </button>
-                <ThemeSwitch />
-              </div>
+              <nav className='flex gap-5 justify-between w-[44vw]'>
+                <div className="flex justify-start">
+                  <h1 className="text-2xl font-bold ml-1 mb-3 flex font-Inter items-center">
+                    <ShoppingCart className="mr-2 mt-0 text-indigo-300" size={30}/>
+                    <span className="text-indigo-500">e</span> 
+                    <span className="text-blue-200">-</span>
+                    <span className="text-tcolor">T'ai</span> 
+                    <span className="text-indigo-500 ml-1">Store </span>
+                  </h1>
+                  <button
+                    onClick={() => setDropdownOpen(!dropdownOpen)}
+                      className="ml-4 mr-36 -mt-1 px-4 py-2 rounded-full flex items-center 
+                      bg-indigo-500 text-white shadow-lg overflow-hidden
+                      hover:bg-indigo-100 hover:text-zinc-800"
+                  >
+                    <Tally3 className='mr-2'/>
+                    {filter === 'all' 
+                      ? 'Filter' 
+                      : filter.charAt(0).toLowerCase() + filter.slice(1)
+                    }
+                  </button>
+                </div>
+                <div className='flex justify-end gap-1'>
+                  <ThemeSwitch />
+                  <div 
+                    className='flex items-center bg-secondary justify-center pl-1 pr-3 py-1 
+                    rounded-full hover:text-zinc-500 lg:bg-transparent'>
+                    <label 
+                      htmlFor="toggle-sidebar" 
+                      className='cursor-pointer block ml-2 lg:hidden'
+                    >
+                      <Menu />
+                    </label>
+                  </div>
+                </div>
+              </nav>
               
               {dropdownOpen && (
                 <div className="absolute bg-primary border-gray-300 rounded-lg mt-2 w-full sm:w-40">

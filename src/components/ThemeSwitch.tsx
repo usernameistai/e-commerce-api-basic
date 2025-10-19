@@ -1,6 +1,5 @@
 import { Moon, Sun } from 'lucide-react';
-import { useEffect } from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const ThemeSwitch = () => {
   const storageKey = 'theme';
@@ -10,17 +9,6 @@ const ThemeSwitch = () => {
   // const [ dark, setDark ] = useState(JSON.parse(localStorage.getItem(storageKey)));
   const [dark, setDark] = useState<boolean>(initialDark);
 
-  // useEffect(() => {
-  //   if (dark) { // data theme form index.css
-  //     document.firstElementChild.setAttribute("data-theme", "dark");
-  //     localStorage.setItem(storageKey, JSON.stringify(true));
-  //     return;
-  //   } else {
-  //     document.firstElementChild.setAttribute("data-theme", "light");
-  //     localStorage.setItem(storageKey, JSON.stringify(false));
-  //     return;
-  //   }
-  // }, [dark]); // run each time value of dark changes
   useEffect(() => {
     const root = document.documentElement;
     root.setAttribute('data-theme', dark ? 'dark' : 'light');

@@ -11,7 +11,7 @@ interface BookCardProps {
 const BookCard: FC<BookCardProps> = ({id, title, image, price }) => {
   return (
     <>
-      <div className="border p-4 rounded font-sans shadow-lg hover:shadow-sm">
+      <div className="border-b border-zinc-400/50 p-4 rounded-lg font-sans shadow-xl hover:shadow-sm hover:bg-zinc-200/50">
         <Link to={`/product/${id}`}>
           <img 
             src={image} 

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useFilter } from './FilterContext';
-import { Menu, ShoppingCart, Tally3 } from 'lucide-react';
+import { Bell, Menu, ShoppingCart, Tally3 } from 'lucide-react';
 import axios from 'axios';
 import BookCard from './BookCard';
 import ThemeSwitch from './ThemeSwitch';
@@ -112,18 +112,23 @@ const MainContent = () => {
                   </h1>
                   <button
                     onClick={() => setDropdownOpen(!dropdownOpen)}
-                      className="ml-4 mr-36 -mt-1 px-4 py-2 rounded-full flex items-center 
+                      className="ml-4 mr-36 -mt-1 px-4 py- rounded-full flex items-center 
                       bg-indigo-500 text-white shadow-lg overflow-hidden
                       hover:bg-indigo-100 hover:text-zinc-800"
                   >
-                    <Tally3 className='mr-2'/>
+                    <Tally3 className='mr-1'/>
                     {filter === 'all' 
                       ? 'Filter' 
                       : filter.charAt(0).toLowerCase() + filter.slice(1)
                     }
                   </button>
                 </div>
-                <div className='flex justify-end gap-1'>
+                <div className='flex justify-end gap-2'>
+                  <a href="#" className='relative mt-[0.6rem]'>
+                    <Bell />
+                    <span className='block size-2 bg-red-500 rounded-full absolute 
+                    top-0 right-0'></span>
+                  </a>
                   <ThemeSwitch />
                   <div 
                     className='flex items-center bg-secondary justify-center pl-1 pr-3 py-1 

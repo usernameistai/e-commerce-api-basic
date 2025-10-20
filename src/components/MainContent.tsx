@@ -112,9 +112,9 @@ const MainContent = () => {
                   </h1>
                   <button
                     onClick={() => setDropdownOpen(!dropdownOpen)}
-                      className="ml-4 mr-36 -mt-1 px-4 py- rounded-full flex items-center 
-                      bg-indigo-500 text-white shadow-lg overflow-hidden
-                      hover:bg-indigo-100 hover:text-zinc-800"
+                      className="ml-4 mr-36 -mt-1 px-4 rounded-full flex items-center 
+                      bg-indigo-500 text-white shadow-lg overflow-hidden 
+                      transition duration-200 ease-in-out hover:bg-indigo-100 hover:text-zinc-800"
                   >
                     <Tally3 className='mr-1'/>
                     {filter === 'all' 
@@ -144,10 +144,10 @@ const MainContent = () => {
               </nav>
               
               {dropdownOpen && (
-                <div className="absolute bg-primary border-gray-300 rounded-lg mt-2 w-full sm:w-40">
+                <div className="absolute bg-indigo-500/80 border-gray-300 rounded-lg mt-2 w-full sm:w-40">
                   <button 
                     onClick={() => setFilter('cheap')} 
-                      className='block px-4 py-2 w-full text-left hover:bg-gray-200'
+                      className='block px-4 py-2 w-full text-left rounded-t-lg hover:bg-gray-200'
                   >
                     Cheap
                   </button>
@@ -159,7 +159,7 @@ const MainContent = () => {
                   </button>
                   <button 
                     onClick={() => setFilter('popular')} 
-                      className='block px-4 py-2 w-full text-left hover:bg-gray-200'
+                      className='block px-4 py-2 w-full text-left rounded-b-lg hover:bg-gray-200'
                   >
                     Popular
                   </button>
@@ -187,7 +187,8 @@ const MainContent = () => {
               onClick={() => handlePageChange(currentPage - 1)}
                 disabled={currentPage === 1}
                   className='px-4 py-2 mx-2 rounded-full text-white 
-                  bg-indigo-500 shadow-lg font-semibold hover:bg-indigo-100
+                  bg-indigo-500 shadow-lg font-semibold
+                  transition duration-100 ease-in-out hover:bg-indigo-100
                    hover:text-zinc-800 hover:shadow-none'
             >
               Previous
@@ -210,7 +211,8 @@ const MainContent = () => {
               onClick={() => handlePageChange(currentPage + 1)}
                 disabled={currentPage === totalPages}
                   className='px-4 py-2 mx-2 rounded-full text-white 
-                  bg-indigo-500 shadow-lg font-semibold hover:bg-indigo-100
+                  bg-indigo-500 shadow-lg font-semibold
+                  transition duration-100 ease-in-out hover:bg-indigo-100
                    hover:text-zinc-800 hover:shadow-none'
             >
               Next

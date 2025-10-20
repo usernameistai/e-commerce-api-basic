@@ -167,7 +167,8 @@ const Sidebar = () => {
           <button
             onClick={handleResetFilters}
               className="w-full my-1 py-2 bg-indigo-500 font-semibold
-              text-white rounded-lg shadow-lg hover:text-indigo-500 
+              text-white rounded-lg shadow-lg 
+              transition duration-100 ease-in-out hover:text-indigo-500 
               hover:bg-indigo-100 focus:shadow-none"
           >
             Reset Filters
